@@ -11,7 +11,7 @@
         <!-- Bootstrap -->
         <link rel="stylesheet" href="css/bootstrap.min.css" />
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
         <!-- Bootsnav -->
         <link rel="stylesheet" href="css/bootsnav.css">
         <!-- Fancybox -->
@@ -56,12 +56,9 @@
                         <li><a href="#"><span class="fa fa-clock-o"></span> Mon - Sat 9:00 - 19:00</a></li>
                     </ul>
                     <ul class="list-inline social_icon">
-                        <li><a href=""><span class="fa fa-facebook"></span></a></li>
-                        <li><a href=""><span class="fa fa-twitter"></span></a></li>
-                        <li><a href=""><span class="fa fa-behance"></span></a></li>
-                        <li><a href=""><span class="fa fa-dribbble"></span></a></li>
-                        <li><a href=""><span class="fa fa-linkedin"></span></a></li>
-                        <li><a href=""><span class="fa fa-youtube"></span></a></li>
+                        <li><a href="https://web.facebook.com/profile.php?id=61567266523901/"><span class="fab fa-facebook"></span></a></li>
+                        <li><a href="https://www.instagram.com/dan.hillconstruction/"><span class="fab fa-instagram"></span></a></li>
+                        <li><a href="https://www.linkedin.com/company/danhill-construction/posts/?feedView=all"><span class="fab fa-linkedin"></span></a></li>                        
                     </ul>			
                 </div>
             </div><!-- Top Navbar end -->
@@ -208,7 +205,7 @@
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="why_us_item">
-                            <span class="fa fa-clock-o"></span>
+                            <span class="fa fa-clock"></span>
                             <h4>On-Time Completion</h4>
                             <p>We respect your time and ensure projects are completed on schedule without compromising quality.</p>
                         </div>
@@ -323,39 +320,37 @@
             <div class="container portfolio_area text-center">
                 <h2>Gallery</h2>
                 <p>Our gallery showcases the exceptional work we have done for clients, each project reflecting our commitment to quality and design excellence.</p>
-
+        
+                <!-- Portfolio Grid Container -->
                 <div class="portfolio-container">
-                    <div class="grid" id="portfolioGrid">
-                        <div class="grid-sizer"></div>
-                        <div class="grid-item grid-item--width2 grid-item--height2  showcase">
-                            <video alt="" src="images/showcase.mp4" poster="images/showcase.jpg" autoplay muted loop></video>
-                            <div class="portfolio_hover_area">
-                                <a class="fancybox" href="images/showcase.mp4" data-fancybox-group="gallery" title="Watch Showcase Video">
-                                    <span class="fa fa-external-link"></span>
-                                </a>
-                            </div>
+                    <!-- Showcase Video as a Grid Item -->
+                    <div class="grid-item grid-item--width2 grid-item--height2 showcase">
+                        <video src="images/showcase.mp4" poster="images/showcase.jpg" autoplay muted></video>
+                        <div class="portfolio_hover_area">
+                            <a class="fancybox" href="images/showcase.mp4" data-fancybox-group="gallery" title="Watch Showcase Video">
+                                <span class="fa fa-external-link"></span>
+                            </a>
                         </div>
-                        <!-- Portfolio items will be dynamically added here -->
                     </div>
-
+        
+                    <!-- Portfolio Images Grid -->
                     <div class="images-container">
-                        <div id="portfolioImages" class="grid">
-                            <!-- Portfolio images will be dynamically added here -->
-                            <div class="grid-item"><img src="images/image1.jpg" alt="Image 1"></div>
-                            <div class="grid-item"><img src="images/image2.jpg" alt="Image 2"></div>
-                            <div class="grid-item"><img src="images/image3.jpg" alt="Image 3"></div>
-                            <div class="grid-item"><img src="images/image4.jpg" alt="Image 4"></div>
+                        <!-- Portfolio images dynamically added here or as static grid items -->
+                        <div id="portfolioImages">
+
                         </div>
-                       
+                        <!-- Add more grid items as needed -->
                     </div>
-                   
                 </div>
+        
+                <!-- Navigation Buttons -->
                 <div class="navigation">
                     <button id="prevBtn" onclick="prevPage()" disabled>Back</button>
                     <button id="nextBtn" onclick="nextPage()">Next</button>
                 </div>
             </div>
         </section>
+        
 
 
 
@@ -398,9 +393,7 @@
 
                             <ul class="list-inline footer_social_icon">
                                 <li><a href=""><span class="fa fa-facebook"></span></a></li>
-                                <li><a href=""><span class="fa fa-twitter"></span></a></li>
-                                <li><a href=""><span class="fa fa-youtube"></span></a></li>
-                                <li><a href=""><span class="fa fa-google-plus"></span></a></li>
+                                <li><a href=""><span class="fa fa-instagram"></span></a></li>
                                 <li><a href=""><span class="fa fa-linkedin"></span></a></li>
                             </ul>
                         </div>

@@ -412,29 +412,30 @@ nav.navbar.bootsnav ul.nav > li > a:hover,nav.navbar.bootsnav ul.nav > li > a:fo
     }
 }
 
-
 /* Portfolio */
 #portfolio {
-    background: rgba(0, 0, 0, 0) url("../images/portfolio_bg.jpg") no-repeat scroll 0 0;
-    background-size: cover;
+    background: url("../images/portfolio_bg.jpg") no-repeat center center/cover;
     position: relative;
     padding-bottom: 102px;
     border-bottom: 2px solid #199ce7;
 }
 
 #portfolio::before {
-    position: absolute;
     content: "";
-    height: 100%;
-    width: 100%;
-    background: #199ce7;
+    position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    background: #199ce7;
+    opacity: 0.5;
+    z-index: 1;
 }
 
 .portfolio_area {
     position: relative;
     color: #fff;
+    z-index: 2;
 }
 
 .portfolio_area h2 {
@@ -444,54 +445,44 @@ nav.navbar.bootsnav ul.nav > li > a:hover,nav.navbar.bootsnav ul.nav > li > a:fo
 
 /* Portfolio container */
 .portfolio-container {
-    display: flex; /* Use flexbox for layout */
-    flex-direction: row; /* Default to row for larger screens */
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Larger left column for showcase */
+    gap: 20px;
+    position: relative;
 }
 
-/* Showcase video styling */
-.grid {
-    margin: 0 -6px;
-    flex: 0 0 50%; /* Showcase takes up 50% width */
-    position: relative; /* Add relative positioning */
-    z-index: 2; /* Bring video above images */
-}
-
-.grid-item {
-    border: 6px solid transparent;
-    height: 255px !important; 
+/* Showcase video */
+.grid-item.showcase {
+    grid-row: span 2;
+    height: 510px;
     overflow: hidden;
 }
 
-.grid-item--width2 { 
-    width: 100%; 
-}
-
-.grid-item--height2 { 
-    height: 510px !important; 
-}
-
-.grid-item video,
-.grid-item img {
+.grid-item img, .grid-item video {
+    width: 100%;
     height: 100%;
-    width: 100%; /* Ensure video and images take full width */
-    object-fit: cover; /* Maintain aspect ratio while filling */
-    transition: all 0.6s;
+    object-fit: cover;
+    transition: transform 0.6s;
 }
 
-.grid-item:hover img {
+.grid-item:hover img, .grid-item:hover video {
     transform: scale(1.1);
 }
 
 /* Portfolio Hover */
 .portfolio_hover_area {
-    background: rgba(0, 0, 0, 0.6);
-    height: 100%;
-    width: 100%;
-    top: 0;
     position: absolute;
-    text-align: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
     opacity: 0;
-    z-index: 1; /* Make sure hover area is below video */
+    transition: opacity 0.3s;
+    z-index: 1;
 }
 
 .grid-item:hover .portfolio_hover_area {
@@ -500,90 +491,61 @@ nav.navbar.bootsnav ul.nav > li > a:hover,nav.navbar.bootsnav ul.nav > li > a:fo
 
 .portfolio_hover_area .fa {
     background: #199ce7;
-    border: 2px solid transparent;
-    border-radius: 5px;
+    border-radius: 50%;
     color: #fff;
     font-size: 30px;
     padding: 15px;
-    border: 1px solid transparent;
+    transition: background 0.3s, color 0.3s;
 }
 
-/* Images container */
+.portfolio_hover_area .fa:hover {
+    background: transparent;
+    color: #199ce7;
+    border: 1px solid #199ce7;
+}
+
+/* Images container with fixed size for images */
 .images-container {
-    flex: 0 0 50%; /* Images container takes 50% width */
-    padding-left: 20px; /* Space between showcase and images */
-    display: flex; /* Use flexbox for layout */
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    position: relative; /* Ensure stacking context */
-}
-
-/* Ensure images take 2 columns and 2 rows */
-.images-container .grid {
-    display: flex; /* Use flexbox for grid items */
-    flex-wrap: wrap; /* Wrap items */
-    width: 100%; /* Full width */
-    z-index: 1; /* Keep images below the showcase */
+    margin: 2px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
 }
 
 .images-container .grid-item {
-    flex: 0 0 calc(50% - 10px); /* Each item takes up 50% of the container width, minus gap */
-    height: 220px; /* Adjust height for grid items */
-    margin: 5px; /* Add some margin for spacing */
+    width: 200px;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
 }
 
-/* Adjust width for wider images */
 .images-container .grid-item img {
-    width: 100%; /* Set to 100% to fit the container */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* Media queries for responsiveness */
+/* Responsive adjustments */
 @media (max-width: 991px) {
-    .images-container .grid-item {
-        flex: 0 0 calc(50% - 10px); /* Maintain 2 columns for smaller screens */
+    .portfolio-container {
+        grid-template-columns: 1fr; /* Stack showcase and images vertically */
+    }
+
+    .images-container {
+        grid-template-columns: 1fr; /* Single column layout for smaller screens */
     }
 }
 
 @media (max-width: 768px) {
-    /* Portfolio container */
-    .portfolio-container {
-        flex-direction: column; /* Stack items vertically */
-    }
-
-    /* Showcase video styling */
-    .grid {
-        flex: 0 0 100%; /* Make the video take full width */
-        margin-bottom: 20px; /* Add space below the video */
-        z-index: 2; /* Ensure it's above the images */
-    }
-
     #portfolio {
-        padding-bottom: 20px; /* Add some padding to the bottom */
-        height: auto; /* Allow height to adjust based on content */
-    }
-
-    /* Adjust images container */
-    .images-container {
-        margin-top: 70vh;
-        flex: 0 0 100%; /* Make the images container take full width */
-        padding-left: 0; /* Remove left padding */
-        display: flex; /* Use flexbox */
-        flex-direction: column; /* Stack images vertically */
-        gap: 10px; /* Add some space between images */
-        z-index: 1; /* Keep below the video */
-    }
-
-    /* Images inside the images container */
-    .images-container .grid-item {
-        flex: 0 0 100%; /* Make each image take full width */
-        height: auto; /* Allow images to adjust height based on aspect ratio */
+        padding-bottom: 20px;
     }
 }
 
 .navigation {
     margin-top: 20px;
-    display: flex; /* Align buttons horizontally */
-    justify-content: center; /* Center buttons */
+    display: flex;
+    justify-content: center;
 }
 
 button {
@@ -600,40 +562,6 @@ button:disabled {
     cursor: not-allowed;
 }
 
-/* Portfolio Hover */
-.portfolio_hover_area {
-    background: rgba(0, 0, 0, 0.6);
-    height: 100%;
-    width: 100%;
-    position: absolute; /* Positioning relative to the grid item */
-    top: 0; /* Align to the top */
-    left: 0; /* Align to the left */
-    display: flex; /* Use flexbox for centering */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-    opacity: 0; /* Initially hidden */
-    transition: opacity 0.3s; /* Smooth transition */
-}
-
-.grid-item:hover .portfolio_hover_area {
-    opacity: 1; /* Show on hover */
-}
-
-/* Icon styling */
-.portfolio_hover_area .fa {
-    background: #199ce7; /* Background color for the icon */
-    border-radius: 50%; /* Circular background */
-    color: #fff; /* Icon color */
-    font-size: 30px; /* Icon size */
-    padding: 15px; /* Padding around the icon */
-    transition: background 0.3s; /* Smooth background transition */
-}
-
-.portfolio_hover_area .fa:hover {
-    background: transparent; /* Change background on hover */
-    color: #199ce7; /* Change icon color on hover */
-    border: 1px solid #199ce7; /* Border on hover */
-}
 
 /* Contact form */
 #contact_form {
