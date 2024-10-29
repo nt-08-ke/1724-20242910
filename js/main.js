@@ -62,18 +62,24 @@ jQuery(document).ready(function ($) {
 });
 // JSON data for portfolio items
 const portfolioItems = [
-    { src: "images/portfolio (5).jpg", title: "Stylish Office Space" },
-    { src: "images/portfolio (6).jpg", title: "Contemporary Outdoor Living" },
-    { src: "images/portfolio (7).jpg", title: "Chic Bedroom Interior" },
-    { src: "images/portfolio (8).jpg", title: "Spacious Living Room" },
-    { src: "images/portfolio (9).jpg", title: "Elegant Foyer Design" },
-    { src: "images/portfolio (10).jpg", title: "Stylish Coffee Shop Interior" },
-    { src: "images/portfolio (11).jpg", title: "Rustic Country Kitchen" },
-    { src: "images/portfolio (12).jpg", title: "Trendy Workspace" },
-    { src: "images/portfolio (13).jpg", title: "Modern Bathroom" },
-    { src: "images/portfolio (14).jpg", title: "Luxury Home Office" },
-    { src: "images/portfolio (15).jpg", title: "Contemporary Apartment" }
+    { src: "images/portfolio (1).jpg", title: "Stylish Office Space" },
+    { src: "images/portfolio (2).jpg", title: "Minimalist Kitchen Design" },
+    { src: "images/portfolio (3).jpg", title: "Sleek Kitchen Interior" },
+    { src: "images/portfolio (4).jpg", title: "Cozy Living Room" },
+    { src: "images/portfolio (5).jpg", title: "Trendy Workspace" },
+    { src: "images/portfolio (6).jpg", title: "Modern Kitchen" },
+    { src: "images/portfolio (7).jpg", title: "Spacious Kitchen Layout" },
+    { src: "images/portfolio (8).jpg", title: "Contemporary Office" },
+    { src: "images/portfolio (9).jpg", title: "Luxurious Bathroom" },
+    { src: "images/portfolio (10).jpg", title: "Elegant Home Office" },
+    { src: "images/portfolio (11).jpg", title: "Professional Conference Room" },
+    { src: "images/portfolio (12).jpg", title: "Chic Urban Reception Area" },
+    { src: "images/portfolio (13).jpg", title: "Inviting Outdoor Living Space" },
+    { src: "images/portfolio (14).jpg", title: "Artistic Workspace Design" },
+    { src: "images/portfolio (15).jpg", title: "Modern Conference Room" }
 ];
+
+
 
 let currentPage = 0; // Start from the first image set
 const itemsPerPage = 4;
